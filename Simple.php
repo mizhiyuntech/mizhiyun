@@ -27,7 +27,7 @@ class Simple extends Model
     // 字段验证规则
     protected $rule = [
         'express_type' => 'require|max:50',
-        'company_name' => 'require|max:100',
+        'company_name' => 'require|max:8|regex:/^(?!\d+$).*/',
         'payment_type' => 'require|in:现结,月结',
         'status' => 'require|in:normal,hidden'
     ];
@@ -37,7 +37,8 @@ class Simple extends Model
         'express_type.require' => '快递类型不能为空',
         'express_type.max' => '快递类型长度不能超过50个字符',
         'company_name.require' => '快递公司不能为空',
-        'company_name.max' => '快递公司名称长度不能超过100个字符',
+        'company_name.max' => '快递公司名称长度不能超过8位',
+        'company_name.regex' => '快递公司名称不能为纯数字',
         'payment_type.require' => '结算方式不能为空',
         'payment_type.in' => '结算方式只能是现结或月结',
         'status.require' => '状态不能为空',
