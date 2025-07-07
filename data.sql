@@ -1,3 +1,6 @@
+-- 删除已存在的合同表
+DROP TABLE IF EXISTS `fa_contract`;
+
 CREATE TABLE `fa_contract` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `contract_type` enum('purchase','commercial') NOT NULL DEFAULT 'purchase' COMMENT '合同类型(purchase=采购合同,commercial=商业合同)',
